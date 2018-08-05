@@ -12,7 +12,7 @@ function checkifthesame4($table) {
 
 
 
-$players = ["kuba", "bartek","andrzej", "jarek","tomek", "maciek","janusz", "michal"];
+$players = ["A", "B","C", "D","E","F","G","H"];
 
 for($i = 0; $i< sizeof($players); $i++) {
            for ($n = $i; $n<sizeof($players); $n++) {
@@ -25,9 +25,14 @@ for($i = 0; $i< sizeof($players); $i++) {
 $pairs = [];
 $pairs2 = [];
 
-while(!empty($combination)){
+
+while(sizeof($pairs) < 28){
+
 
       shuffle($combination);
+
+      
+      
 
       if(checkifthesame($combination)){
 
@@ -36,27 +41,21 @@ while(!empty($combination)){
 
       }
 
-
       if(empty($combination))
         break;
 
-      if(sizeof($players) > 4){
-
-          if(sizeof($combination) == 2 & !checkifthesame($combination)){
-            
-            $combination[] = array_shift($pairs);
-            $combination[] = array_shift($pairs);
-          }elseif(sizeof($combination) == 4){
-            if(!checkifthesame4($combination)){
-              $combination[] = array_shift($pairs);
-              $combination[] = array_shift($pairs);
-            }
-          }
+      if(sizeof($combination) == 2 & !checkifthesame($combination)){
+        
+        $combination[] = array_shift($pairs);
+        $combination[] = array_shift($pairs);
+      }elseif(sizeof($combination) == 4){
+        if(!checkifthesame4($combination)){
+          $combination[] = array_shift($pairs);
+          $combination[] = array_shift($pairs);
+        }
       }
 
-
-  }
-
+}
 
  while(!empty($pairs)) {
 
