@@ -3,19 +3,18 @@
 require_once("player.php");
 require_once("game.php");
 
-$players = new Player();
+$player = new Player();
 
-$players2 = ["Kuba", "Maciek","Tomek", "Michal"];
+$players = ["Kuba", "Maciek","Tomek", "Michal","Janusz", "Krzysztof", "Andrzej", "Kamil"];
 
-$players->addPlayers($players2);
+$player->addPlayers($players);
 
 $game = new Game();
 
-$game->shufflePlayers($players->players);
+$game->shufflePairs($game->shufflePlayers($player->players), $players);
 
-print_r($game->combination);
+$game->showMatches($game->pairs);
 
-$game->shufflePairs($game->combination);
 
 
 

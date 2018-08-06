@@ -4,7 +4,7 @@
 
 class Player {
     
-    public $players_count = 0;
+    public $players_count;
     
     public $players = [];
     
