@@ -1,30 +1,18 @@
-<?php
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilkarzyki</title>
+</head>
 
-require_once("player.php");
-require_once("game.php");
-
-$player = new Player();
-
-$players = ["Kuba", "Maciek","Tomek", "Michal","Janusz", "Krzysztof", "Andrzej", "Kamil"];
-
-$player->addPlayers($players);
-
-$game = new Game();
-
-$game->shufflePairs($game->shufflePlayers($player->players), $players);
-
-$game->showMatches($game->pairs);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<body>
+   
+   <form method="post" action="players.php">
+      <label for="count">Podaj ilość graczy:</label><br>
+       <input type="number" name="number"><br><br>
+       <input type="submit" name="submit">
+   </form>
+    
+</body>
+</html>

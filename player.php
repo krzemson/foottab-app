@@ -11,21 +11,24 @@ class Player {
     
     public function addPlayers($playersNames){
         
-            $this->players = $playersNames;
+            for($i = 1; $i <=$this->players_count; $i++){
+                $this->players[] = $_POST["$playersNames$i"];
+        }
+            
         
         return $this->players;
     }
     
-    public function getPLayersCount($count){
-        
-        return $this->$players_count;
-    }
     
     public function setPLayersCount($count){
+        
         $this->players_count = $count;
         
-        return $this->players_count;
+        unset($count);
+ 
     }
     
 
 }
+
+$player = new Player();
