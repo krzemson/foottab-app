@@ -9,8 +9,8 @@
 <body>
    
    <form method="post" action="players.php">
-      <label for="count">Podaj ilość graczy:</label><br>
-       <input type="number" name="number"><br><br>
+      <label for="number">Podaj ilość graczy:<br>
+       <input type="number" name="number"><br><br></label>
        <input type="submit" name="submit">
    </form>
     

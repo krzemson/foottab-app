@@ -24,11 +24,11 @@ if(isset($_POST['submit'])){
 <body>
    
    <form method="post" action="shuffle.php">
-     
-     <?php for($i = 1; $i <= $number; $i++) { ?>
-     
-      <label for="count">Podaj nazwę gracza:</label><br>
-       <input type="text" name="nick<?php echo $i?>"><br><br>
+        <?php
+        for ($i = 1; $i <= $number; $i++) { ?>
+      <label for="nick">Podaj nazwę gracza:
+       <input type="text" name="nick<?php echo $i?>">
+      </label><br><br>
        
        <?php } ?>
        
