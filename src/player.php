@@ -42,6 +42,10 @@ class Player
         unset($count);
     }
 
+    /**
+     * @param $players
+     * @return boolean
+     */
     private function save($players)
     {
         foreach ($players as $player) {
@@ -49,5 +53,7 @@ class Player
 
             $this->database->query($sql);
         }
+
+        return true;
     }
 }
