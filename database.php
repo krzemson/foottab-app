@@ -6,7 +6,6 @@ use mysqli;
 
 class Database
 {
-
     public $connection;
     public $db;
     

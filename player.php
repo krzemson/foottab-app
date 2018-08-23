@@ -9,6 +9,13 @@ class Player
     
     public $players = [];
 
+    public $database;
+
+    public function __construct()
+    {
+        $this->database = new Database();
+    }
+
     /**
      * @param $playersNames
      * @return array
@@ -19,8 +26,9 @@ class Player
         for ($i = 1; $i <=$this->players_count; $i++) {
                 $this->players[] = $_POST["$playersNames$i"];
         }
-            
-        
+
+        $this->save($this->players);
+
         return $this->players;
     }
 
@@ -33,7 +41,13 @@ class Player
         
         unset($count);
     }
+
+    private function save($players)
+    {
+        foreach ($players as $player) {
+            $sql = "INSERT INTO players (name, points) VALUES ('$player',0)";
+
+            $this->database->query($sql);
+        }
+    }
 }
-
-
-

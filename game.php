@@ -38,6 +38,8 @@ class Game
             & $table[0][1] != $table[1][1]) {
             return true;
         }
+
+        return false;
     }
 
     /**
@@ -60,6 +62,8 @@ class Game
             & $table[0][1]  != $table[3][1]) {
             return true;
         }
+
+        return false;
     }
 
     /**

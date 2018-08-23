@@ -5,10 +5,10 @@ use TableFootball\Player;
 
 session_start();
 
-
+require_once("config.php");
+require_once("database.php");
 require_once("player.php");
 require_once("game.php");
-
 
 if (isset($_POST['nick1'])) {
     $player = new Player();
