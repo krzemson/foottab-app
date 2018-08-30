@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit']) & !empty($_POST['number'])) {
     $number = $_POST['number'];
     
      $_SESSION['number'] = $number;
-}else{
+} else {
     header("Location: index.php");
 }
 
@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
        <input type="text" name="nick<?php echo $i?>">
       </label><br><br>
        
-       <?php } ?>
+        <?php } ?>
        
        <input type="submit" name="submit">
    </form>

@@ -10,9 +10,17 @@ require_once("database.php");
 require_once("player.php");
 require_once("game.php");
 
+
+for ($i = 1; $i <= $_SESSION['number']; $i++) {
+    if (empty($_POST["nick$i"])) {
+        header("Location: index.php");
+        exit();
+    }
+}
+
 if (isset($_POST['nick1'])) {
     $player = new Player();
-    $player->setPLayersCount($_SESSION['number']);
+    $player->setPlayersCount($_SESSION['number']);
 
     $pairs = $player->addPlayers("nick");
 
@@ -22,7 +30,7 @@ if (isset($_POST['nick1'])) {
 
     $game->shufflePairs($shuffle, $pairs);
 
-    $pairs2 = $game->pairs2;
+    $_SESSION['score'] = $game->pairs2;
 } else {
     header("Location: index.php");
 }
@@ -39,12 +47,22 @@ if (isset($_POST['nick1'])) {
 
 <body>
    
-   <form method="post" action="">
+   <form method="post" action="score.php">
     <?php
+
+    $count = 0;
+
     foreach ($game->pairs2 as $pair2) {
-        echo "<p><b>($pair2[0], $pair2[1])</b> zagrają z <b>($pair2[2], $pair2[3])</b><input type=\"number\"></p>";
+        echo "<p>
+               <b>($pair2[0], $pair2[1])</b>
+                zagrają z 
+                <b>($pair2[2], $pair2[3])</b>
+                <input type=\"number\" name='score$count' min='1' max='2'>
+                </p>";
+        $count++;
     }
     ?>
+       <input type="submit" name="submit1">
    </form>
     
 </body>
